@@ -5,7 +5,7 @@ package resources;
  * @author yadwindersingh
  *
  */
-public class QuickSelectAlgo {
+public class QuickSelectSort {
 	 public int findKthLargest(int[] nums, int k) {
 	        int start = 0, end = nums.length - 1, index = nums.length - k;
 	        while (start < end) {
@@ -34,7 +34,7 @@ public class QuickSelectAlgo {
 	    }
 	    
 	    public static void main(String[] arr) {
-			QuickSelectAlgo obj = new QuickSelectAlgo();
+			QuickSelectSort obj = new QuickSelectSort();
 			int nums[]= {5,6,7,1,2,3,4};
 			System.out.println(obj.findKthLargest(nums, 2));
 		}
