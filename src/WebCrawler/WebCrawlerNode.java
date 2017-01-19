@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Stack;
 
+/**
+ *  A Web Node based on a visit of the crawler.
+ * 
+ * 
+ * @author Clóvis
+ *
+ */
 public class WebCrawlerNode implements java.io.Serializable {
 	
 	// Base of the visited node

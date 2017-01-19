@@ -10,13 +10,14 @@ $(document).ready(function() {
 
 });
 
+// Function to get searching suggestions from WebSrcController
+// It will be show using auto-complete function
 function getSuggestion() {
 	var xhttp;
 	console.log("calling!!!!");
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-
 			console.log($.parseJSON(xhttp.responseText));
 			prefixCollection = $.parseJSON(xhttp.responseText);
 			$('#usr').autocomplete({
@@ -27,9 +28,9 @@ function getSuggestion() {
 	var str = $('#usr').val();
 	xhttp.open("GET", "WebSrcController?act=prefix&prefix=" + str, true);
 	xhttp.send();
-
 }
 
+//Function to get Top URLs searched in the InvertedIndex engine through the WebSrcController
 function getTopUrls() {
 	var xhttp;
 	console.log("Calling get top URl function!!!!");
@@ -65,6 +66,7 @@ function getTopUrls() {
 
 }
 
+//Function to get recommended words from WebSrcController 
 function getrecommendedWord() {
 	var xhttp;
 	console.log("Calling get getRecommendeWord!!!!");

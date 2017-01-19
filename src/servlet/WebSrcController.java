@@ -10,14 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-
 import WebCrawler.WebCrawlerManager;
 import WebCrawler.WebCrawlerNode;
+import net.sf.json.JSONArray;
 import resources.InvertedIndex;
 
 /**
- * Servlet implementation class FirstEntry
+ * 
+ * 
+ *   Servlet Controller that interfaces with the user search UI.  
+ * 
+ * 
+ * @author Clóvis
+ *
  */
 @WebServlet("/WebSrcController")
 public class WebSrcController extends HttpServlet {
@@ -61,7 +66,11 @@ public class WebSrcController extends HttpServlet {
 	
 	
 	
-	
+	/**
+	 * 
+	 *   Implements the GET Method for search
+	 * 
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -75,28 +84,28 @@ public class WebSrcController extends HttpServlet {
 
 		if (request.getParameter("act") != null) {
 			String actValue = request.getParameter("act");
-			System.out.println("### DEBUG => ACT = " + actValue);
+//			System.out.println("### DEBUG => ACT = " + actValue);
 			if (actValue.equals("prefix")) {
 				if (request.getParameter("prefix") != null) {
 					String prefixValue = request.getParameter("prefix");
-					System.out.println("### DEBUG Prefix = " + prefixValue.length());
+//					System.out.println("### DEBUG Prefix = " + prefixValue.length());
 					if (prefixValue.length() != 0) {
 						JSONArray obj = new JSONArray();
 						if (invertedIndexEngine.guessWord(prefixValue) != null) {
 							for (String s : invertedIndexEngine.guessWord(prefixValue)) {
 								obj.add(s);
 							}
-							System.out.println("Returnung " + invertedIndexEngine.guessWord(prefixValue));
+//							System.out.println("Returnung " + invertedIndexEngine.guessWord(prefixValue));
 						}
 						response.getWriter().print(obj);
 					}
 				}
 			} else if (actValue.equals("getTopUrl")) {
-				System.out.println("### DEBUG => ACT = " + actValue);
+//				System.out.println("### DEBUG => ACT = " + actValue);
 				String prefixValue = request.getParameter("prefix");
-				System.out.println("### DEBUG prefix = " + prefixValue);
+//				System.out.println("### DEBUG prefix = " + prefixValue);
 				if (prefixValue != null) {
-					System.out.println("### DEBUG prefix = " + prefixValue.length());
+//					System.out.println("### DEBUG prefix = " + prefixValue.length());
 					if (prefixValue.length() != 0) {
 						ArrayList<String> e = new ArrayList<String>();
 						JSONArray obj = new JSONArray();
@@ -104,7 +113,7 @@ public class WebSrcController extends HttpServlet {
 							int i = 0;
 							for (String s : invertedIndexEngine.getTopUrls(prefixValue)) {
 								if (s != null) {
-									System.out.println("### DEBUG => getTopUrl = " + i + " => " + s);
+//									System.out.println("### DEBUG => getTopUrl = " + i + " => " + s);
 									i++;
 									obj.add(s);
 								}
@@ -114,9 +123,9 @@ public class WebSrcController extends HttpServlet {
 					}
 				}
 			} else if (actValue.equals("getCorWord")) {
-				System.out.println("### DEBUG => ACT = " + actValue);
+//				System.out.println("### DEBUG => ACT = " + actValue);
 				String prefixValue = request.getParameter("prefix");
-				System.out.println("### DEBUG prefix = " + prefixValue.length());
+//				System.out.println("### DEBUG prefix = " + prefixValue.length());
 				if (prefixValue != null) {
 					if (prefixValue.length() != 0) {
 						ArrayList<String> e = new ArrayList<String>();
@@ -138,6 +147,12 @@ public class WebSrcController extends HttpServlet {
 	
 
 	
+	/**
+	 * 
+	 *   For testing purpose only
+	 * 
+	 * @param args
+	 */
 	public static void main (String[] args) {
 		Collection<WebCrawlerNode> nodesSaved = null;
 		try {
