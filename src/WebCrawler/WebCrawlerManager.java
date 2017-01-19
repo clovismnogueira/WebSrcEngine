@@ -8,6 +8,16 @@ import java.util.Iterator;
 import resources.InvertedIndex;
 import utilities.Util;
 
+/**
+ * 
+ *  A simples WeCrawler nove manager that will SERIALIZE and LOAD BACK INTO MEMORY the nodes.
+ *  The approach was implemented in order do have the Web Crawler building more and more nodes in parallel that could be fed to the InvertedIndex engine later.
+ *  The web crawling process is very much time consuming.
+ * 
+ * 
+ * @author Clóvis
+ *
+ */
 public class WebCrawlerManager {
 	
 	private static final String FILE_PREFIX = "WebCrawlerNodes";

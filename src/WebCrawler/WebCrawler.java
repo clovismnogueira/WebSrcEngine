@@ -21,7 +21,16 @@ import org.jsoup.select.Elements;
 import utilities.Util;
 
 
-
+/**
+ * 
+ * 	The Web Crawler algorithm implemented uses recursion in order to navigate in the found URLs of each newly loaded HTML page. 
+ * 	A number of visited URLs may be define in order to limit and set an end for the web crawling process.
+ * 	JSOUP is the base API to implement the Web crawler. The most important functionalities as connect to URLs, 
+ * 	retrieve the HTML content, parse into text and extract the HREF URLs are all implemented using JSOUP API.
+ * 
+ * @author Clóvis
+ *
+ */
 public class WebCrawler {
 	
 	// Creates a LIST (Queue) to maintain the list of links that will have to be visited

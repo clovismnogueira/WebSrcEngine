@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
-public class TestQuickSelect1 {
+public class QuickSelectSortTest {
 	 public int findKthLargest(int[] nums, int k) {
 	        int start = 0, end = nums.length - 1, index = nums.length - k;
 	        while (start < end) {
@@ -32,7 +32,7 @@ public class TestQuickSelect1 {
 	    }
 	    
 	    public static void main(String[] arr) {
-	    	TestQuickSelect1 obj = new TestQuickSelect1();
+	    	QuickSelectSortTest obj = new QuickSelectSortTest();
 	    	HashMap<String, Integer> e = new HashMap<String, Integer>();
 	    	e.put("a", 1);
 	    	e.put("b",5);
