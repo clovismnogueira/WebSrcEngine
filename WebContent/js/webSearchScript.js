@@ -66,7 +66,7 @@ function getTopUrls() {
 
 }
 
-//Function to get recommended words from WebSrcController
+//Function to get recommended words from WebSrcController 
 function getrecommendedWord() {
 	var xhttp;
 	console.log("Calling get getRecommendeWord!!!!");
