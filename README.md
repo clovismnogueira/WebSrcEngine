@@ -1,5 +1,5 @@
 # WebSrcEngine
-This application is built using JAVA, JS, BootStrap and JQuery.
+This application is built using JAVA (JSoup + JSon) , JS, BootStrap and JQuery.
 The Application consists of below functionalities:
 1. Web Crawler - which is gathering the string tokens from a URL recursively.
    Currently we have limit the scope of URL crawling to be 10,000 . But can easily be changed.
